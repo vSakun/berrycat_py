@@ -24,7 +24,7 @@ img {
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: minmax(50px, 150px) minmax(20px, 40px) minmax(450px, auto) minmax(20px, 50px) minmax(450px, auto) minmax(20px, 50px) minmax(450px, auto) minmax(20px, 50px) minmax(450px, auto) 300px;
+  grid-auto-rows: minmax(20px, auto);
   grid-gap: .5em;
 }
 
@@ -94,12 +94,18 @@ h2 {
   justify-content: space-between;
   align-items: center;
   width: 50%;
+  height: 50px;
 }
 
 h2::after {
   content: "";
   position: relative;
-  width: 50%;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 auto;
+  -ms-flex: 1 auto;
+  flex: 1 auto;
+  margin-left: 20px;
   height: 0px;
   border-top: 7px dotted rgb(187, 72, 59);
 }
@@ -107,6 +113,7 @@ h2::after {
 h2::before {
   content: "";
   position: relative;
+  margin-right: 20px;
   width: 10%;
   height: 0px;
   border-top: 7px dotted rgb(187, 72, 59);
@@ -164,6 +171,8 @@ p, a {
 p {
   margin: 0;
   padding: 0;
+  line-height: 1.5;
+  word-spacing: .5rem;
 }
 
 a {
@@ -179,6 +188,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
+  height: 150px;
 }
 
 #logo {
@@ -362,7 +372,7 @@ header {
   position: relative;
   width: 100%;
   opacity: 1;
-  padding: 0 10px;
+  padding: 0 40px;
   transition: opacity 1.2s;
 }
 
@@ -482,7 +492,7 @@ header {
 
 .info_artcl_glr {
   color: #ffffff;
-  padding: 20px;
+  padding: 40px;
   opacity: 0;
   width: 60%;
   background-color: rgba(0, 0, 0, .7);
@@ -517,6 +527,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  height: 300px;
 }
 
 .wrapper_footer_img {
