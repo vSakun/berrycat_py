@@ -12,7 +12,7 @@ img {
   display: block;
 }
 
-.full_article {
+.link_full_article {
   position: absolute;
   width: 0;
   height: 0;
@@ -33,15 +33,14 @@ img {
   font-size: 1.2rem;
 }
 
-h1, h2 {
+h1, h2, h4 {
   font-family: Steamy;
-  font-size: 1.5rem;
   font-weight: 200;
   margin: 0;
   padding: 0;
 }
 
-h3, h4, h5, h6 {
+h3, h5, h6 {
   font-family: MontserratAlternates;
   font-size: 1.5rem;
   font-weight: 200;
@@ -94,7 +93,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   width: 50%;
-  height: 50px;
+  height: 70px;
 }
 
 h2::after {
@@ -111,6 +110,39 @@ h2::after {
 }
 
 h2::before {
+  content: "";
+  position: relative;
+  margin-right: 20px;
+  width: 10%;
+  height: 0px;
+  border-top: 7px dotted rgb(187, 72, 59);
+}
+
+h4 {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: rgb(53, 56, 64);
+  text-shadow: 1px 1px 2px rgb(255, 255, 255, .5);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+}
+
+h4::after {
+  content: "";
+  position: relative;
+  margin-left: 20px;
+  width: 10%;
+  height: 0px;
+  border-top: 7px dotted rgb(187, 72, 59);
+}
+
+h4::before {
   content: "";
   position: relative;
   margin-right: 20px;
@@ -340,6 +372,7 @@ header {
   align-items: flex-start;
   overflow: hidden;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+  transition: box-shadow .5s;
 }
 
 .big_article img, .nano_article img, .article_bloc img, .item_rnd_artcl img {
@@ -353,9 +386,10 @@ header {
 
 .big_article:hover, .nano_article:hover, .article_bloc:hover, .item_rnd_artcl:hover {
   box-shadow: 3px 3px 5px rgba(99, 50, 117, .5);
+  transition: box-shadow .5s;
 }
 
-.big_article:hover .full_article, .nano_article:hover .full_article, .article_bloc:hover .full_article, .item_rnd_artcl:hover .full_article, .foto_bloc:hover .full_article {
+.big_article:hover .link_full_article, .nano_article:hover .link_full_article, .article_bloc:hover .link_full_article, .item_rnd_artcl:hover .link_full_article, .foto_bloc:hover .link_full_article {
   width: 100%;
   height: 100%;
   z-index: 2;
@@ -441,7 +475,7 @@ header {
   object-position: center;
 }
 
-.info_item_slide .full_article:hover~.info_artcl_glr {
+.info_item_slide .link_full_article:hover~.info_artcl_glr {
   opacity: 1;
   z-index: 1;
   transition: opacity 1s;
@@ -645,3 +679,86 @@ footer {
 }
 
 /* page article */
+.full_article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.full_article h2, .full_article h4 {
+  align-self: flex-start;
+}
+
+.full_article p {
+  text-align: justify;
+}
+
+.full_article .about_article {
+  display: flex;
+  flex-direction: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.about_article .social_mini {
+  justify-content: space-around;
+  width: 30%;
+}
+
+.about_article .social_mini .fa-thumbs-up, .about_article .social_mini .fa-thumbs-down {
+  font-size: 3rem;
+  background-color: #565656;
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  transition: color .3s, text-shadow .3s;
+}
+
+.about_article .social_mini p:hover .fa-thumbs-up, .about_article .social_mini p:hover .fa-thumbs-down {
+  color: rgba(255, 255, 255, .9);
+  text-shadow: 1px 1px 1px rgba(99, 50, 117, .7);
+  -webkit-background-clip: inherit;
+  -moz-background-clip: inherit;
+  background-clip: inherit;
+  background-color: transparent;
+  transition: color .3s, text-shadow .7s;
+}
+.about_article .social_mini p span{
+  transition: color .2s;
+}
+.about_article .social_mini p:hover span{
+  color: rgba(255, 255, 255, .9);
+  transition: color .2s;
+}
+
+.wrapper_article_img {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper_article_img {
+  width: 70%;
+  padding: 30px 0;
+}
+
+.wrapper_article_img p span {
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.wrapper_article_img img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+}
+.author_date_article{
+  color: #565656;
+}
