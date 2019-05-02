@@ -727,12 +727,17 @@ footer {
   background-color: transparent;
   transition: color .3s, text-shadow .7s;
 }
+.about_article .social_mini p{
+  cursor: pointer;
+}
 .about_article .social_mini p span{
-  transition: color .2s;
+  color: #565656;
+  transition: color .2s, text-shadow .2s;
 }
 .about_article .social_mini p:hover span{
   color: rgba(255, 255, 255, .9);
-  transition: color .2s;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  transition: color .2s, text-shadow .2s;
 }
 
 .wrapper_article_img {
