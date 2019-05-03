@@ -12,3 +12,7 @@ def article(request):
 
 def search(request):
     return render(request, 'blog/search.html')
+
+
+def rubric(request):
+    return render(request, 'blog/rubric.html')

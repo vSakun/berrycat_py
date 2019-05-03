@@ -41,13 +41,13 @@ function popup(){
 		$(".popup").append('<i class="fa fa-times"></i>');
 		$(document).mouseup(function (e){ // событие клика по веб-документу
 			var div = $(".box");
-			var cl = $(".popup i[class=pe-7s-close]"); // тут указываем ID элемента
+			// var cl = $(".popup i[class=pe-7s-close]"); // тут указываем ID элемента
 			if (!div.is(e.target) && div.has(e.target).length === 0){ // и не по его дочерним элементам
 				$("div.popup").remove(); // скрываем его
 			}
-			if(cl.is(e.target) && cl.has(e.target).length ===0){
-				$("div.popup").remove();
-			}
+			// if(cl.is(e.target) && cl.has(e.target).length ===0){
+			// 	$("div.popup").remove();
+			// }
 		});
 	});
 	$(document).bind('keydown', function(eventObject){
