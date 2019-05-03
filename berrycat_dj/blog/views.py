@@ -8,3 +8,7 @@ def home(request):
 
 def article(request):
     return render(request, 'blog/article.html')
+
+
+def search(request):
+    return render(request, 'blog/search.html')
