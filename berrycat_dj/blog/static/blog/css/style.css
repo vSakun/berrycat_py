@@ -869,7 +869,7 @@ footer {
   transition: box-shadow .3s;
 }
 .search_article::after{
-  content: "ЖМИ!";
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
