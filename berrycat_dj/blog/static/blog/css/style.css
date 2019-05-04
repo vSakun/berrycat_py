@@ -1,9 +1,9 @@
 html {
   /* background-color: #FFE8D7; */
   /* background: url(../image/coffee.png) no-repeat top -9% left 5.5%, linear-gradient(to top, #A3785D, #FFE8D7); */
-  background: url(../image/kartinki/cassette4.png) no-repeat, url(../image/kartinki/cup5.png) no-repeat, url(../image/kartinki/glasses5.png) no-repeat, linear-gradient(to top, #A3785D, #FFE8D7);
-  background-size: 20%, 20%, 20%;
-  background-position: 2% 20%, 100% 45%, 2% 70%;
+  background: url(../image/kartinki/cassette4.png) no-repeat, url(../image/kartinki/cup5.png) no-repeat, url(../image/kartinki/glasses5.png) no-repeat, url(../image/kartinki3/kist4.png) no-repeat, url(../image/kartinki3/pero4.png) no-repeat, url(../image/kartinki3/trubka4.png) no-repeat, url(../image/kartinki3/planshet4.png) no-repeat, linear-gradient(to top, #A3785D, #FFE8D7);
+  background-size: 20%, 20%, 20%, 1.2%, 1.2%, 10%, 10%;
+  background-position: 2% 20%, 100% 45%, 2% 65%, 90% 25%, 5% 53%, 95% 77%, 5% 94%;
   box-shadow: inset 0 0 200px #A3785D;
   /*background: url(../image/coffee.png) no-repeat top -9.4% left 5.5%, url(../image/431.jpg); */
   /* background: url(../image/top.jpg) no-repeat top, url(../image/bottom.jpg) no-repeat bottom, url(../image/midle.jpg) repeat-Y;
