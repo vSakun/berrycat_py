@@ -1,7 +1,9 @@
 html {
   /* background-color: #FFE8D7; */
   /* background: url(../image/coffee.png) no-repeat top -9% left 5.5%, linear-gradient(to top, #A3785D, #FFE8D7); */
-  background: linear-gradient(to top, #A3785D, #FFE8D7);
+  background: url(../image/kartinki/cassette4.png) no-repeat, url(../image/kartinki/cup5.png) no-repeat, url(../image/kartinki/glasses5.png) no-repeat, linear-gradient(to top, #A3785D, #FFE8D7);
+  background-size: 20%, 20%, 20%;
+  background-position: 2% 20%, 100% 45%, 2% 70%;
   box-shadow: inset 0 0 200px #A3785D;
   /*background: url(../image/coffee.png) no-repeat top -9.4% left 5.5%, url(../image/431.jpg); */
   /* background: url(../image/top.jpg) no-repeat top, url(../image/bottom.jpg) no-repeat bottom, url(../image/midle.jpg) repeat-Y;
@@ -838,7 +840,6 @@ footer {
 .wrapper_article_img_area img {
   flex: 1 1;
   height: 200px;
-  margin: 10px;
   object-fit: cover;
   object-position: center;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
@@ -998,6 +999,30 @@ footer {
   display: none;
   color: white;
   text-shadow: 1px 1px 2px #565656;
+}
+.popup_img_block{
+  position: relative;
+  margin: 10px;
+}
+.popup_img_block:hover::before{
+  opacity: 1;
+  transition: opacity .3s;
+}
+.popup_img_block::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: url(../image/pensne.png) no-repeat, rgba(255, 255, 255, .5);
+  background-position: center;
+  background-size: 50%;
+  transition: opacity .3s;
+}
+.popup .popup_img_block::before{
+  display: none;
 }
 .popup .popup_img_block{
   position: relative;
