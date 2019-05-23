@@ -189,6 +189,7 @@ h4::before {
 input {
   font-family: MontserratAlternates;
   border: none;
+  color: #565656;
 }
 
 input:focus {
@@ -201,7 +202,6 @@ input:focus {
   border-radius: 0 10px 10px 0;
   background: rgba(99, 50, 117, .3);
   font-family: MontserratAlternates;
-  color: #565656;
   transition: all .3s;
 }
 
