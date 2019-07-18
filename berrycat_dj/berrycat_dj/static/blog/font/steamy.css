@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'Steamy';
+    src: local('Steamy'), url('Steamy.woff2') format('woff2'), url('Steamy.woff') format('woff'), url('Steamy.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
