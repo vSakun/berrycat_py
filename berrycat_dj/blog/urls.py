@@ -6,4 +6,5 @@ urlpatterns = [
     path('post/<int:id>/', views.DetailArticleView.as_view(), name='post'),
     path('search/', views.search, name='search'),
     path('articles/', views.AllArticleView.as_view(), name='articles'),
+    path('articles/travel/', views.TravelArticleView.as_view(), name='travel'),
 ]

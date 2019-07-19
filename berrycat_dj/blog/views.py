@@ -33,5 +33,16 @@ class AllArticleView(ListView):
         return ctx
 
 
+class TravelArticleView(ListView):
+    model = Article
+    template_name = 'blog/rubric.html'
+    context_object_name = 'article'
+    ordering = ['-date']
+
+    def get_context_data(self, **kwargs):
+        ctx = super(TravelArticleView, self).get_context_data(**kwargs)
+        return ctx
+
+
 class DetailArticleView(DetailView):
     model = Article
