@@ -7,8 +7,19 @@ from ckeditor.fields import RichTextField
 
 
 class Article(models.Model):
+
+    RUBRIC = (
+        ('all', "Статьи"),
+        ('travel', "Путешествия"),
+        ('coffee_country', "Страна Кофе"),
+        ('hand_made', "Hand made"),
+        ('places_and_events', "Места и события")
+    )
+
     active = models.BooleanField()
-    title = models.CharField(max_length=100)
+    rubric = models.CharField(
+        max_length=100, choices=RUBRIC, verbose_name="Рубрика", default="all")
+    title = models.CharField(max_length=100, verbose_name="Название статьи")
     text_article = RichTextField()
     text_preview = models.CharField(max_length=255)
     date = models.DateTimeField(default=timezone.now)
@@ -17,3 +28,10 @@ class Article(models.Model):
     dislike = models.BigIntegerField()
     views_all = models.BigIntegerField()
     image = models.ImageField(upload_to='pictures/', null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Статья"
+        verbose_name_plural = "Статьи"
