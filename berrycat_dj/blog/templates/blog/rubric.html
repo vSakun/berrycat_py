@@ -2,7 +2,7 @@
 {% load static %}
 {% block rubric %}
 <div class="wrapper_h2">
-  <h2>Путешествия</h2>
+  <h2>Статьи</h2>
   <form action="" method="post" id="search-block-form">
     <div class="wrapper_input">
       <div class="form-item">
@@ -15,201 +15,25 @@
   </form>
 </div>
 <section id="last_article">
+
+{% for article in article %}
+
   <article class="article_bloc">
     <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
+      <h3>{{ article.title }}</h3>
+      <p class="mini_inf">{{ article.text_preview }}</p>
       <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
+        <p><i class="far fa-thumbs-up"></i><span>{{ article.like }}</span></p>
+        <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
         <p><i class="far fa-comments"></i><span>15</span></p>
       </div>
       <a href="#" class="link_full_article"></a>
     </div>
-    <img src="{% static 'blog/image/5.jpg' %}" alt="">
+    <img src="{{ BASE_DIR }}{{ article.image.url }}" alt="">
   </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/2.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/3.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/4.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/5.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/1.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/2.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/3.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/4.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/2.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/3.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/4.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/2.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/3.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/4.jpg' %}" alt="">
-  </article>
+
+{% endfor %}
+
 </section>
 <div class="pag_mnu">
   <div class="pag_left"><a href=""><i class="fas fa-chevron-left"></i></a></div>

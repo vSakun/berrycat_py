@@ -16,4 +16,4 @@ class Article(models.Model):
     like = models.BigIntegerField()
     dislike = models.BigIntegerField()
     views_all = models.BigIntegerField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to='pictures/', null=True, blank=True)
