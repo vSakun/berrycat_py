@@ -7,4 +7,9 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('articles/', views.AllArticleView.as_view(), name='articles'),
     path('articles/travel/', views.TravelArticleView.as_view(), name='travel'),
+    path('articles/hand_made/', views.HandMadeArticleView.as_view(), name='hand_made'),
+    path('articles/coffee_country/',
+         views.HandMadeArticleView.as_view(), name='coffee_country'),
+    path('articles/places_and_events/',
+         views.HandMadeArticleView.as_view(), name='places_and_events'),
 ]
