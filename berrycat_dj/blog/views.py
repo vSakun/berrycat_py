@@ -19,10 +19,10 @@ class HomeView(ListView):
 
         random_index = randint(0, Article.objects.count() - 4)
 
-        big_best_article = Article.objects.filter(
-            active=1).order_by('-like')[0]
-        small_best_article = Article.objects.filter(
-            active=1).order_by('-like')[1:5]
+        big_view_article = Article.objects.filter(
+            active=1).order_by('-views_all')[0]
+        small_view_article = Article.objects.filter(
+            active=1).order_by('-views_all')[1:5]
         last_article = Article.objects.filter(
             active=1).order_by('-date')[:9]
         gallery_article = Article.objects.filter(
@@ -30,8 +30,8 @@ class HomeView(ListView):
         random_article = Article.objects.filter(
             active=1)[random_index:random_index + 4]
         data = {
-            'big_best_article': big_best_article,
-            'small_best_article': small_best_article,
+            'big_view_article': big_view_article,
+            'small_view_article': small_view_article,
             'last_article': last_article,
             'gallery_article': gallery_article,
             'random_article': random_article
@@ -130,6 +130,9 @@ class DetailArticleView(DetailView):
     template_name = 'blog/article_detail.html'
 
     def get_context_data(self, **kwargs):
+        random_index = randint(0, Article.objects.count() - 3)
         ctx = super(DetailArticleView, self).get_context_data(**kwargs)
+        ctx['best_article'] = Article.objects.filter(
+            active=1).order_by('-like')[random_index:random_index + 3]
         ctx['title'] = Article.objects.filter(pk=self.kwargs['pk']).first()
         return ctx

@@ -18,20 +18,20 @@
   <div class="big_bloc">
     <article class="big_article">
       <div class="wrapper_h3">
-        <h3>{{ article.big_best_article.title }}</h3>
-        <p class="mini_inf">{{ article.big_best_article.text_preview }}</p>
+        <h3>{{ article.big_view_article.title }}</h3>
+        <p class="mini_inf">{{ article.big_view_article.text_preview }}</p>
         <div class="social_mini">
-          <p><i class="far fa-thumbs-up"></i><span>{{ article.big_best_article.like }}</span></p>
-          <p><i class="far fa-thumbs-down"></i><span>{{ article.big_best_article.dislike }}</span></p>
-          <p><i class="far fa-comments"></i><span>{{ article.big_best_article.views_all }}</span></p>
+          <p><i class="far fa-thumbs-up"></i><span>{{ article.big_view_article.like }}</span></p>
+          <p><i class="far fa-thumbs-down"></i><span>{{ article.big_view_article.dislike }}</span></p>
+          <p><i class="far fa-comments"></i><span>{{ article.big_view_article.views_all }}</span></p>
         </div>
-        <a href="#" class="link_full_article"></a>
+        <a href="{% url 'article' article.big_view_article.id %}" class="link_full_article"></a>
       </div>
-      <img src="{{ BASE_DIR }}{{ article.big_best_article.image.url }}" alt="">
+      <img src="{{ BASE_DIR }}{{ article.big_view_article.image.url }}" alt="">
     </article>
   </div>
   <div class="mini_bloc">
-    {% for article in article.small_best_article %}
+    {% for article in article.small_view_article %}
     <article class="nano_article">
       <div class="wrapper_h3">
         <h3>{{ article.title }}</h3>
@@ -41,7 +41,7 @@
           <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
           <p><i class="far fa-comments"></i><span>{{ article.views_all }}</span></p>
         </div>
-        <a href="#" class="link_full_article"></a>
+        <a href="{% url 'article' article.id %}" class="link_full_article"></a>
       </div>
       <img src="{{ BASE_DIR }}{{article.image.url }}" alt="">
     </article>
@@ -103,7 +103,7 @@
         <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
         <p><i class="far fa-comments"></i><span>{{ article.views_all }}</span></p>
       </div>
-      <a href="#" class="link_full_article"></a>
+      <a href="{% url 'article' article.id %}" class="link_full_article"></a>
     </div>
     <img src="{{ BASE_DIR }}{{article.image.url }}" alt="">
   </article>
@@ -225,7 +225,7 @@
     {% for article in article.gallery_article %}
     <div class="info_item_slide">
       <img src="{{ BASE_DIR }}{{article.image.url }}" alt="">
-      <a href="#" class="link_full_article"></a>
+      <a href="{% url 'article' article.id %}" class="link_full_article"></a>
       <div class="info_artcl_glr">
         <h3>{{ article.title }}</h3>
         <p>{{ article.text_preview }}</p>
@@ -270,7 +270,7 @@
         <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
         <p><i class="far fa-comments"></i><span>{{ article.views_all }}</span></p>
       </div>
-      <a href="#" class="link_full_article"></a>
+      <a href="{% url 'article' article.id %}" class="link_full_article"></a>
     </div>
     <img src="{{ BASE_DIR }}{{article.image.url }}" alt="">
   </article>
