@@ -18,36 +18,35 @@
   <div class="big_bloc">
     <article class="big_article">
       <div class="wrapper_h3">
-        <h3>Квартира обставленная Джеком</h3>
-        <p class="mini_inf">Равным образом высокотехнологичная концепция общественной системы позволяет выполнять важные задания по разработке направлений прогрессивного развития. С другой стороны повышение уровня гражданского сознания
-          обеспечивает актуальность существующий финансовых и административных условий. Повседневная практика показывает, что высокотехнологичная концепция общественной системы позволяет выполнять важные задания по разработке системы обучения
-          кадров, соответствующей насущным потребностям. С другой стороны постоянный количественный рост и сфера нашей активности напрямую зависит от системы обучения кадров, соответствующей насущным потребностям. Следует отметить, что дальнейшее
-          развитие различных форм деятельности обеспечивает актуальность соответствующих условий активизации.</p>
+        <h3>{{ article.big_best_article.title }}</h3>
+        <p class="mini_inf">{{ article.big_best_article.text_preview }}</p>
         <div class="social_mini">
-          <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-          <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-          <p><i class="far fa-comments"></i><span>15</span></p>
+          <p><i class="far fa-thumbs-up"></i><span>{{ article.big_best_article.like }}</span></p>
+          <p><i class="far fa-thumbs-down"></i><span>{{ article.big_best_article.dislike }}</span></p>
+          <p><i class="far fa-comments"></i><span>{{ article.big_best_article.views_all }}</span></p>
         </div>
         <a href="#" class="link_full_article"></a>
       </div>
-      <img src="{% static 'blog/image/1.jpg' %}" alt="">
+      <img src="{{ BASE_DIR }}{{ article.big_best_article.image.url }}" alt="">
     </article>
   </div>
   <div class="mini_bloc">
+    {% for article in article.small_best_article %}
     <article class="nano_article">
       <div class="wrapper_h3">
-        <h3>Дом с окном</h3>
-        <p class="mini_inf">Следует отметить, что новая модель организационной деятельности обеспечивает.</p>
+        <h3>{{ article.title }}</h3>
+        <p class="mini_inf">{{ article.text_preview }}</p>
         <div class="social_mini">
-          <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-          <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-          <p><i class="far fa-comments"></i><span>15</span></p>
+          <p><i class="far fa-thumbs-up"></i><span>{{ article.like }}</span></p>
+          <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
+          <p><i class="far fa-comments"></i><span>{{ article.views_all }}</span></p>
         </div>
         <a href="#" class="link_full_article"></a>
       </div>
-      <img src="{% static 'blog/image/2.jpg' %}" alt="">
+      <img src="{{ BASE_DIR }}{{article.image.url }}" alt="">
     </article>
-    <article class="nano_article">
+    {% endfor %}
+    <!-- <article class="nano_article">
       <div class="wrapper_h3">
         <h3>Я не сломаюсь</h3>
         <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
@@ -85,27 +84,33 @@
         <a href="#" class="link_full_article"></a>
       </div>
       <img src="{% static 'blog/image/5.jpg' %}" alt="">
-    </article>
+    </article> -->
   </div>
 </section>
 <div class="wrapper_h2">
   <h2>последние</h2>
 </div>
 <section id="last_article">
+
+  {% for article in article.last_article %}
+
   <article class="article_bloc">
     <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
+      <h3>{{ article.title }}</h3>
+      <p class="mini_inf">{{ article.text_preview }}</p>
       <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
+        <p><i class="far fa-thumbs-up"></i><span>{{ article.like }}</span></p>
+        <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
+        <p><i class="far fa-comments"></i><span>{{ article.views_all }}</span></p>
       </div>
       <a href="#" class="link_full_article"></a>
     </div>
-    <img src="{% static 'blog/image/5.jpg' %}" alt="">
+    <img src="{{ BASE_DIR }}{{article.image.url }}" alt="">
   </article>
-  <article class="article_bloc">
+
+  {% endfor %}
+
+  <!-- <article class="article_bloc">
     <div class="wrapper_h3">
       <h3>Я не сломаюсь</h3>
       <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
@@ -208,7 +213,7 @@
       <a href="#" class="link_full_article"></a>
     </div>
     <img src="{% static 'blog/image/4.jpg' %}" alt="">
-  </article>
+  </article> -->
 </section>
 <div class="wrapper_h2">
   <h2>Галерея</h2>
@@ -217,19 +222,17 @@
   <div class="foto_bloc">
     <div class="slide_manual prev"><i class="fas fa-chevron-left"></i></div>
     <div class="slide_manual next"><i class="fas fa-chevron-right"></i></div>
+    {% for article in article.gallery_article %}
     <div class="info_item_slide">
-      <img src="{% static 'blog/image/1.jpg' %}" alt="">
+      <img src="{{ BASE_DIR }}{{article.image.url }}" alt="">
       <a href="#" class="link_full_article"></a>
       <div class="info_artcl_glr">
-        <h3>Какой то большой заголовок</h3>
-        <p>Повседневная практика показывает, что начало повседневной работы по формированию позиции требует определения и уточнения системы обучения кадров, соответствующей насущным потребностям. Разнообразный и богатый опыт консультация с
-          широким
-          активом в значительной степени обуславливает создание поэтапного и последовательного развития общества. С другой стороны управление и развитие структуры в значительной степени обуславливает создание поставленных обществом и
-          правительством
-          задач.</p>
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.text_preview }}</p>
       </div>
     </div>
-    <div class="info_item_slide">
+    {% endfor %}
+    <!-- <div class="info_item_slide">
       <img src="{% static 'blog/image/2.jpg' %}" alt="">
       <a href="#" class="link_full_article"></a>
       <div class="info_artcl_glr">
@@ -250,27 +253,29 @@
           активом в значительной степени обуславливает создание поэтапного и последовательного развития общества. С другой стороны управление и развитие структуры в значительной степени обуславливает создание поставленных обществом и правительством
           задач.</p>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 <div class="wrapper_h2">
   <h2>Случайные</h2>
 </div>
 <section id="random_article">
+  {% for article in article.random_article %}
   <article class="item_rnd_artcl">
     <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
+      <h3>{{ article.title }}</h3>
+      <p class="mini_inf">{{ article.text_preview }}</p>
       <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
+        <p><i class="far fa-thumbs-up"></i><span>{{ article.like }}</span></p>
+        <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
+        <p><i class="far fa-comments"></i><span>{{ article.views_all }}</span></p>
       </div>
       <a href="#" class="link_full_article"></a>
     </div>
-    <img src="{% static 'blog/image/1.jpg' %}" alt="">
+    <img src="{{ BASE_DIR }}{{article.image.url }}" alt="">
   </article>
-  <article class="item_rnd_artcl">
+  {% endfor %}
+  <!-- <article class="item_rnd_artcl">
     <div class="wrapper_h3">
       <h3>Я не сломаюсь</h3>
       <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
@@ -308,7 +313,7 @@
       <a href="#" class="link_full_article"></a>
     </div>
     <img src="{% static 'blog/image/4.jpg' %}" alt="">
-  </article>
+  </article> -->
 </section>
 
 {% endblock main_section %}
