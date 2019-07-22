@@ -27,7 +27,7 @@
         <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
         <p><i class="far fa-comments"></i><span>15</span></p>
       </div>
-      <a href="#" class="link_full_article"></a>
+      <a href="{% url 'article' article.id %}" class="link_full_article"></a>
     </div>
     <img src="{{ BASE_DIR }}{{ article.image.url }}" alt="">
   </article>

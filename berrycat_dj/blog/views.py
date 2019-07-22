@@ -122,3 +122,4 @@ class Places_and_EventsArticleView(ListView):
 
 class DetailArticleView(DetailView):
     model = Article
+    template_name = 'blog/article_detail.html'
