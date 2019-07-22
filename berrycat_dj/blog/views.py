@@ -37,6 +37,11 @@ class HomeView(ListView):
             'random_article': random_article
         }
         return data
+
+    def get_context_data(self, **kwargs):
+        ctx = super(HomeView, self).get_context_data(**kwargs)
+        ctx['title'] = 'BarryCat'
+        return ctx
     # def get_context_data(self, **kwargs):
     #     ctx = super(HomeView, self).get_context_data(**kwargs)
     #     ctx['big_best_article'] = Article.objects.filter(
@@ -67,7 +72,7 @@ class AllArticleView(ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super(AllArticleView, self).get_context_data(**kwargs)
-        ctx['page_title'] = 'Статьи'
+        ctx['title'] = 'Статьи'
         return ctx
 
 
@@ -79,7 +84,7 @@ class TravelArticleView(ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super(TravelArticleView, self).get_context_data(**kwargs)
-        ctx['page_title'] = 'путешествия'
+        ctx['title'] = 'путешествия'
         return ctx
 
 
@@ -91,7 +96,7 @@ class HandMadeArticleView(ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super(HandMadeArticleView, self).get_context_data(**kwargs)
-        ctx['page_title'] = 'HAND MADE'
+        ctx['title'] = 'HAND MADE'
         return ctx
 
 
@@ -103,7 +108,7 @@ class Coffee_CountryArticleView(ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super(Coffee_CountryArticleView, self).get_context_data(**kwargs)
-        ctx['page_title'] = 'Страна кофе'
+        ctx['title'] = 'Страна кофе'
         return ctx
 
 
@@ -116,10 +121,15 @@ class Places_and_EventsArticleView(ListView):
     def get_context_data(self, **kwargs):
         ctx = super(Places_and_EventsArticleView,
                     self).get_context_data(**kwargs)
-        ctx['page_title'] = 'Места и события'
+        ctx['title'] = 'Места и события'
         return ctx
 
 
 class DetailArticleView(DetailView):
     model = Article
     template_name = 'blog/article_detail.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super(DetailArticleView, self).get_context_data(**kwargs)
+        ctx['title'] = Article.objects.filter(pk=self.kwargs['pk']).first()
+        return ctx
