@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
-from .models import Article
+from .models import Article, CommentArticle
 from random import randint
+from .forms import CommentForm
 # from django.http import HttpResponse
 
 
@@ -131,7 +132,11 @@ class DetailArticleView(DetailView):
 
     def get_context_data(self, **kwargs):
         random_index = randint(0, Article.objects.count() - 3)
+        id_article = get_object_or_404(Article, pk=self.kwargs['pk'])
         ctx = super(DetailArticleView, self).get_context_data(**kwargs)
+        ctx['form'] = CommentForm()
+        ctx['comments'] = CommentArticle.objects.filter(
+            for_article=id_article, active=True)
         ctx['best_article'] = Article.objects.filter(
             active=1).order_by('-like')[random_index:random_index + 3]
         ctx['title'] = Article.objects.filter(pk=self.kwargs['pk']).first()

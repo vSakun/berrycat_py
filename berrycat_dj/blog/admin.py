@@ -12,4 +12,12 @@ class ArticleAdmin(admin.ModelAdmin):
         model = models.Article
 
 
+class CommentArticleAdmin(admin.ModelAdmin):
+    list_display = ['avtor_comment', 'for_article', 'date_created', 'active']
+
+    class Meta:
+        model = models.CommentArticle
+
+
 admin.site.register(models.Article, ArticleAdmin)
+admin.site.register(models.CommentArticle, CommentArticleAdmin)

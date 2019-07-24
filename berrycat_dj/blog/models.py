@@ -35,3 +35,16 @@ class Article(models.Model):
     class Meta:
         verbose_name = "Статья"
         verbose_name_plural = "Статьи"
+
+
+class CommentArticle(models.Model):
+    class Meta():
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
+
+    avtor_comment = models.CharField(max_length=255)
+    for_article = models.ForeignKey(
+        Article, verbose_name="Статья", on_delete=models.CASCADE)
+    text_comment = models.TextField(max_length=500)
+    date_created = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
