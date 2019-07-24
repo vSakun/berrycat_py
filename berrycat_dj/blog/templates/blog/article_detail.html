@@ -77,18 +77,19 @@
       <img src="{{ BASE_DIR }}{{ article.image.url }}" alt="">
     </article>
     {% endfor %}
-    <h4>Комментарии</h4>
-    {% for comment in comments %}
-      <div class="commemt">
-        <p>{{ comment.avtor_comment }}</p>
-        <p>{{ comment.text_comment }}</p>
-        <p>{{ comment.date_created }}</p>
-      </div>
-    {% endfor %}
-    <form action="" method="post">
-      {% csrf_token %}
-      {{form}}
-      <input type="submit" value="Отправить">
-    </form>
+
   </section>
+  <h4>Комментарии</h4>
+  {% for comm in comments %}
+    <div class="comment">
+      <p>{{ comm.avtor_comment }}</p>
+      <p>{{ comm.text_comment }}</p>
+      <p>{{ comm.date_created }}</p>
+    </div>
+  {% endfor %}
+  <form action="" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Отправить">
+  </form>
 {% endblock article %}

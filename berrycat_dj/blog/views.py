@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView
+from django.urls import reverse
+from django.views.generic import ListView, DetailView, UpdateView
 from .models import Article, CommentArticle
 from random import randint
 from .forms import CommentForm
-# from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 
 class HomeView(ListView):
@@ -126,8 +127,9 @@ class Places_and_EventsArticleView(ListView):
         return ctx
 
 
-class DetailArticleView(DetailView):
+class DetailArticleView(DetailView, UpdateView):
     model = Article
+    form_class = CommentForm
     template_name = 'blog/article_detail.html'
 
     def get_context_data(self, **kwargs):
@@ -141,3 +143,30 @@ class DetailArticleView(DetailView):
             active=1).order_by('-like')[random_index:random_index + 3]
         ctx['title'] = Article.objects.filter(pk=self.kwargs['pk']).first()
         return ctx
+
+    def form_valid(self, form):
+        form.save()
+        avtor_comment = form.cleaned_data['avtor_comment']
+        text_comment = form.cleaned_data['text_comment']
+        for_article = Article.objects.filter(pk=self.kwargs['pk']).first()
+        comment = CommentArticle.objects.create(
+            avtor_comment=avtor_comment, text_comment=text_comment, for_article=for_article)
+        comment.save()
+        return self.render_to_response(self.get_context_data(form=form))
+        # print(self.get_success_url())
+        # return HttpResponseRedirect(self.get_success_url())
+
+# def comments(request, pk):
+#     article = get_object_or_404(CommentArticle, id=pk)
+#     print(article)
+#     comment = CommentArticle.objects.filter(for_article=article, active=True)
+#     if request.method == "POST":
+#         form = CommentForm(request.POST)
+#         if form.is_valid():
+#             comm = form.save(commit=False)
+#             comm.avtor_comment = request.avtor_comment
+#             comm.article = article
+#             comm.save()
+#             return redirect('article', slug=post.slug)
+#     else:
+#         form = CommentForm()
