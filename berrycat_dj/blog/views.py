@@ -153,20 +153,3 @@ class DetailArticleView(DetailView, UpdateView):
             avtor_comment=avtor_comment, text_comment=text_comment, for_article=for_article)
         comment.save()
         return self.render_to_response(self.get_context_data(form=form))
-        # print(self.get_success_url())
-        # return HttpResponseRedirect(self.get_success_url())
-
-# def comments(request, pk):
-#     article = get_object_or_404(CommentArticle, id=pk)
-#     print(article)
-#     comment = CommentArticle.objects.filter(for_article=article, active=True)
-#     if request.method == "POST":
-#         form = CommentForm(request.POST)
-#         if form.is_valid():
-#             comm = form.save(commit=False)
-#             comm.avtor_comment = request.avtor_comment
-#             comm.article = article
-#             comm.save()
-#             return redirect('article', slug=post.slug)
-#     else:
-#         form = CommentForm()
