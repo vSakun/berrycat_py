@@ -71,6 +71,7 @@ class AllArticleView(ListView):
     template_name = 'blog/rubric.html'
     context_object_name = 'article'
     ordering = ['-date']
+    paginate_by = 9
 
     def get_context_data(self, **kwargs):
         ctx = super(AllArticleView, self).get_context_data(**kwargs)
@@ -83,6 +84,7 @@ class TravelArticleView(ListView):
     context_object_name = 'article'
     ordering = ['-date']
     queryset = Article.objects.filter(rubric='travel', active=1)
+    paginate_by = 9
 
     def get_context_data(self, **kwargs):
         ctx = super(TravelArticleView, self).get_context_data(**kwargs)
@@ -95,6 +97,7 @@ class HandMadeArticleView(ListView):
     context_object_name = 'article'
     ordering = ['-date']
     queryset = Article.objects.filter(rubric='hand_made', active=1)
+    paginate_by = 9
 
     def get_context_data(self, **kwargs):
         ctx = super(HandMadeArticleView, self).get_context_data(**kwargs)
@@ -107,6 +110,7 @@ class Coffee_CountryArticleView(ListView):
     context_object_name = 'article'
     ordering = ['-date']
     queryset = Article.objects.filter(rubric='coffee_country', active=1)
+    paginate_by = 9
 
     def get_context_data(self, **kwargs):
         ctx = super(Coffee_CountryArticleView, self).get_context_data(**kwargs)
@@ -119,6 +123,7 @@ class Places_and_EventsArticleView(ListView):
     context_object_name = 'article'
     ordering = ['-date']
     queryset = Article.objects.filter(rubric='places_and_events', active=1)
+    paginate_by = 9
 
     def get_context_data(self, **kwargs):
         ctx = super(Places_and_EventsArticleView,

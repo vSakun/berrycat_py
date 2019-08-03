@@ -5,9 +5,15 @@ html {
   background-size: 20%, 20%, 20%, 1.2%, 1.2%, 10%, 10%;
   background-position: 2% 20%, 100% 45%, 2% 65%, 90% 25%, 5% 53%, 95% 77%, 5% 94%;
   box-shadow: inset 0 0 200px #A3785D;
+  min-height: 100vh;
+  height: auto;
   /*background: url(../image/coffee.png) no-repeat top -9.4% left 5.5%, url(../image/431.jpg); */
   /* background: url(../image/top.jpg) no-repeat top, url(../image/bottom.jpg) no-repeat bottom, url(../image/midle.jpg) repeat-Y;
   background-size: contain, contain, contain; */
+}
+body {
+  min-height: 100vh;
+  height: auto;
 }
 /* start */
 img {
@@ -22,6 +28,8 @@ img {
 
 .wrapper {
   width: 100%;
+  min-height: 100vh;
+  height: auto;
   margin: 0 auto;
   padding: 0 20px;
   display: grid;
