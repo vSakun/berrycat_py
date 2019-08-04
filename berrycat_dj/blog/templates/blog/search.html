@@ -2,7 +2,7 @@
 {% load static %}
 {% block search %}
 <div class="wrapper_h2">
-  <h2>Поиск</h2>
+  <h2>{{ title }}</h2>
   <form action="" method="post" id="search-block-form">
     <div class="wrapper_input">
       <div class="form-item">
@@ -15,196 +15,78 @@
   </form>
 </div>
 <section id="search_page">
+  {% for article in article %}
   <div class="search_article">
     <div class="search_wrapper_img">
-      <img src="{% static 'blog/image/1.jpg' %}" alt="">
+      <img src="{{ BASE_DIR }}{{ article.image.url }}" alt="">
     </div>
     <div class="search_text_article">
-      <h4>Тратата та тау ... как то так</h4>
-      <p>Следует отметить, что повышение уровня гражданского сознания напрямую зависит от поэтапного и последовательного развития общества. Равным образом начало повседневной работы по формированию позиции напрямую зависит от поставленных обществом и
-        правительством задач.</p>
+      <h4>{{ article.title }}</h4>
+      <p>{{ article.text_article|striptags|truncatechars:300 }}</p>
       <div class="about_article">
         <div class="social_mini">
-          <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-          <p><i class="far fa-thumbs-down"></i><span>675</span></p>
+          <p><i class="far fa-thumbs-up"></i><span>{{ article.like }}</span></p>
+          <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
         </div>
         <div class="author_date_article">
-          <p>Автор: <span>Анигилятор</span></p>
-          <p>Дата: <span>01.23.1978</span></p>
+          <p>Автор: <span>{{ article.avtor }}</span></p>
+          <p>Дата: <span>{{ article.date|date:"d E Y H:i" }}</span></p>
         </div>
       </div>
     </div>
-    <a href="#" class="link_full_article">Полная статья</a>
+    <a href="{% url 'article' article.id %}" class="link_full_article">Полная статья</a>
   </div>
-  <div class="search_article">
-    <div class="search_wrapper_img">
-      <img src="{% static 'blog/image/1.jpg' %}" alt="">
-    </div>
-    <div class="search_text_article">
-      <h4>Тратата та тау ... как то так</h4>
-      <p>Следует отметить, что повышение уровня гражданского сознания напрямую зависит от поэтапного и последовательного развития общества. Равным образом начало повседневной работы по формированию позиции напрямую зависит от поставленных обществом и
-        правительством задач.</p>
-        <div class="about_article">
-          <div class="social_mini">
-            <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-            <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-          </div>
-          <div class="author_date_article">
-            <p>Автор: <span>Анигилятор</span></p>
-            <p>Дата: <span>01.23.1978</span></p>
-          </div>
-        </div>
-    </div>
-    <a href="#" class="link_full_article">Полная статья</a>
-  </div>
-  <div class="search_article">
-    <div class="search_wrapper_img">
-      <img src="{% static 'blog/image/1.jpg' %}" alt="">
-    </div>
-    <div class="search_text_article">
-      <h4>Тратата та тау ... как то так</h4>
-      <p>Следует отметить, что повышение уровня гражданского сознания напрямую зависит от поэтапного и последовательного развития общества. Равным образом начало повседневной работы по формированию позиции напрямую зависит от поставленных обществом и
-        правительством задач.</p>
-        <div class="about_article">
-          <div class="social_mini">
-            <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-            <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-          </div>
-          <div class="author_date_article">
-            <p>Автор: <span>Анигилятор</span></p>
-            <p>Дата: <span>01.23.1978</span></p>
-          </div>
-        </div>
-    </div>
-    <a href="#" class="link_full_article">Полная статья</a>
-  </div>
-  <div class="search_article">
-    <div class="search_wrapper_img">
-      <img src="{% static 'blog/image/1.jpg' %}" alt="">
-    </div>
-    <div class="search_text_article">
-      <h4>Тратата та тау ... как то так</h4>
-      <p>Следует отметить, что повышение уровня гражданского сознания напрямую зависит от поэтапного и последовательного развития общества. Равным образом начало повседневной работы по формированию позиции напрямую зависит от поставленных обществом и
-        правительством задач.</p>
-        <div class="about_article">
-          <div class="social_mini">
-            <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-            <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-          </div>
-          <div class="author_date_article">
-            <p>Автор: <span>Анигилятор</span></p>
-            <p>Дата: <span>01.23.1978</span></p>
-          </div>
-        </div>
-    </div>
-    <a href="#" class="link_full_article">Полная статья</a>
-  </div>
-  <div class="search_article">
-    <div class="search_wrapper_img">
-      <img src="{% static 'blog/image/1.jpg' %}" alt="">
-    </div>
-    <div class="search_text_article">
-      <h4>Тратата та тау ... как то так</h4>
-      <p>Следует отметить, что повышение уровня гражданского сознания напрямую зависит от поэтапного и последовательного развития общества. Равным образом начало повседневной работы по формированию позиции напрямую зависит от поставленных обществом и
-        правительством задач.</p>
-        <div class="about_article">
-          <div class="social_mini">
-            <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-            <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-          </div>
-          <div class="author_date_article">
-            <p>Автор: <span>Анигилятор</span></p>
-            <p>Дата: <span>01.23.1978</span></p>
-          </div>
-        </div>
-    </div>
-    <a href="#" class="link_full_article">Полная статья</a>
-  </div>
-  <div class="search_article">
-    <div class="search_wrapper_img">
-      <img src="{% static 'blog/image/1.jpg' %}" alt="">
-    </div>
-    <div class="search_text_article">
-      <h4>Тратата та тау ... как то так</h4>
-      <p>Следует отметить, что повышение уровня гражданского сознания напрямую зависит от поэтапного и последовательного развития общества. Равным образом начало повседневной работы по формированию позиции напрямую зависит от поставленных обществом и
-        правительством задач.</p>
-        <div class="about_article">
-          <div class="social_mini">
-            <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-            <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-          </div>
-          <div class="author_date_article">
-            <p>Автор: <span>Анигилятор</span></p>
-            <p>Дата: <span>01.23.1978</span></p>
-          </div>
-        </div>
-    </div>
-    <a href="#" class="link_full_article">Полная статья</a>
-  </div>
-  <div class="search_article">
-    <div class="search_wrapper_img">
-      <img src="{% static 'blog/image/1.jpg' %}" alt="">
-    </div>
-    <div class="search_text_article">
-      <h4>Тратата та тау ... как то так</h4>
-      <p>Следует отметить, что повышение уровня гражданского сознания напрямую зависит от поэтапного и последовательного развития общества. Равным образом начало повседневной работы по формированию позиции напрямую зависит от поставленных обществом и
-        правительством задач.</p>
-        <div class="about_article">
-          <div class="social_mini">
-            <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-            <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-          </div>
-          <div class="author_date_article">
-            <p>Автор: <span>Анигилятор</span></p>
-            <p>Дата: <span>01.23.1978</span></p>
-          </div>
-        </div>
-    </div>
-    <a href="#" class="link_full_article">Полная статья</a>
-  </div>
+  {% endfor %}
 </section>
+<div class="pag_mnu">
+  {% if  is_paginated %}
+  <div class="pag_left">
+    {% if page_obj.has_previous %}
+    <a href="?page=1" class=""><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></a>
+    <a href="?page={{ page_obj.previous_page_number }}" class=""><i class="fas fa-chevron-left"></i></a>
+    {% endif %}
+  </div>
+  <div class="pag_int_center">
+
+
+
+    {% for num in page_obj.paginator.page_range %}
+    {% if num == page_obj.number %}
+    <button>{{ num }}</button>
+    {% elif num > page_obj.number|add:'-3' and  num < page_obj.number|add:'3' %}
+    <a href="?page={{ num }}" class="">{{ num }}</a>
+    {% endif %}
+    {% endfor %}
+
+    
+    
+  </div>
+  <div class="pag_right">
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" class=""><i class="fas fa-chevron-right"></i></a>
+    <a href="?page={{ page_obj.paginator.num_pages }}" class=""><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
 <div class="wrapper_h2">
   <h2>Рекомендую</h2>
 </div>
 <section id="last_article">
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
+    {% for article in best_article %}
+    <article class="article_bloc">
+      <div class="wrapper_h3">
+        <h3>{{ article.title }}</h3>
+        <p class="mini_inf">{{ article.text_preview }}</p>
+        <div class="social_mini">
+          <p><i class="far fa-thumbs-up"></i><span>{{ article.like }}</span></p>
+          <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
+          <p><i class="far fa-comments"></i><span>{{ article.views_all }}</span></p>
+        </div>
+        <a href="{% url 'article' article.id %}" class="link_full_article"></a>
       </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/5.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/2.jpg' %}" alt="">
-  </article>
-  <article class="article_bloc">
-    <div class="wrapper_h3">
-      <h3>Я не сломаюсь</h3>
-      <p class="mini_inf">Для современного мира консультация с широким активом играет важную роль в формировании соответствующих.</p>
-      <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>265</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>675</span></p>
-        <p><i class="far fa-comments"></i><span>15</span></p>
-      </div>
-      <a href="#" class="link_full_article"></a>
-    </div>
-    <img src="{% static 'blog/image/3.jpg' %}" alt="">
-  </article>
-</section>
+      <img src="{{ BASE_DIR }}{{ article.image.url }}" alt="">
+    </article>
+    {% endfor %}
+  </section>
 {% endblock search %}

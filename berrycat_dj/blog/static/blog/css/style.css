@@ -285,6 +285,7 @@ a {
   text-transform: uppercase;
   position: relative;
   letter-spacing: 0;
+  outline: none;
 }
 
 header {
@@ -806,6 +807,7 @@ footer {
 
 .about_article .social_mini p span {
   color: #565656;
+  text-shadow: 1px 1px 1px transparent;
   transition: color .2s, text-shadow .2s;
 }
 
@@ -855,6 +857,17 @@ footer {
 
 .author_date_article {
   color: #565656;
+  padding: 0 10px 10px 0;
+}
+.more_link {
+  color: rgb(187, 72, 59);
+  text-shadow: 1px 1px 1px transparent;
+  transition: color .2s, text-shadow .2s;
+}
+.more_link:hover {
+  color: rgba(255, 255, 255, .9);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  transition: color .2s, text-shadow .2s;
 }
 
 /* PAGE search */
@@ -869,6 +882,7 @@ footer {
   position: relative;
   background-color: rgba(255,255,255, .5);
   height: 250px;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -924,12 +938,18 @@ footer {
 .search_text_article {
   padding: 0 15px;
   flex: 1;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
 }
 .search_text_article .about_article{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .search_wrapper_img {
@@ -937,17 +957,21 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 25%;
   height: 100%;
+  overflow: hidden;
 }
 
 .search_wrapper_img img {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
+  width: 100%;
   height: 100%;
 }
 
 .search_text_article h4 {
   height: 50px;
+  text-align: center;
 }
 /* pag_mnu */
 .pag_mnu{

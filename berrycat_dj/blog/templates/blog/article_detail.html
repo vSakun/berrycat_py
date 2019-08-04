@@ -53,7 +53,7 @@
         <p><i class="far fa-thumbs-down"></i><span>{{ object.dislike }}</span></p>
       </div>
       <div class="author_date_article">
-        <p>Автор: <span>{{ object.avtor }}</span></p>
+        <p>Автор: <a href="{% url 'user_article_view' article.avtor.username %}" class='more_link'>{{ object.avtor }}</a></p>
         <p>Дата: <span>{{ object.date|date:"d E Y H:i" }}</span></p>
       </div>
     </div>

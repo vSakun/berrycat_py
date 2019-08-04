@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse
+from django.contrib.auth.models import User
+#from django.urls import reverse
 from django.views.generic import ListView, DetailView, UpdateView
 from .models import Article, CommentArticle
 from random import randint
 from .forms import CommentForm
-from django.http import HttpResponseRedirect
+#from django.http import HttpResponseRedirect
 
 
 class HomeView(ListView):
@@ -55,9 +56,8 @@ class HomeView(ListView):
     #     return ctx
 
 
-def post(request):
-    return render(request, 'blog/article.html')
-
+# def post(request):
+#     return render(request, 'blog/article.html')
 
 def search(request):
     return render(request, 'blog/search.html')
@@ -65,6 +65,27 @@ def search(request):
 
 # def rubric(request):
 #     return render(request, 'blog/rubric.html')
+
+class UserArticleView(ListView):
+    model = Article
+    template_name = 'blog/search.html'
+    context_object_name = 'article'
+    ordering = ['-date']
+    paginate_by = 9
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Article.objects.filter(active=1, avtor=user)
+
+    def get_context_data(self, **kwargs):
+        random_index = randint(0, Article.objects.count() - 3)
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        ctx = super(UserArticleView, self).get_context_data(**kwargs)
+        ctx['title'] = 'Статьи ' + str(user)
+        ctx['best_article'] = Article.objects.filter(
+            active=1).order_by('-like')[random_index:random_index + 3]
+        return ctx
+
 
 class AllArticleView(ListView):
     queryset = Article.objects.filter(active=1)
@@ -88,7 +109,7 @@ class TravelArticleView(ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super(TravelArticleView, self).get_context_data(**kwargs)
-        ctx['title'] = 'путешествия'
+        ctx['title'] = 'Путешествия'
         return ctx
 
 
