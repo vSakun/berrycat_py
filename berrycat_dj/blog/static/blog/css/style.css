@@ -207,6 +207,8 @@ input:focus {
 .form-submit {
   padding: 10px 20px;
   cursor: pointer;
+  color: #565656;
+  border: none;
   border-radius: 0 10px 10px 0;
   background: rgba(99, 50, 117, .3);
   font-family: MontserratAlternates;

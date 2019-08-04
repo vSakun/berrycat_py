@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
+from django.db.models import Q
 #from django.urls import reverse
 from django.views.generic import ListView, DetailView, UpdateView
 from .models import Article, CommentArticle
@@ -9,14 +10,9 @@ from .forms import CommentForm
 
 
 class HomeView(ListView):
-    # model = Article
     template_name = 'blog/index.html'
     context_object_name = 'article'
 
-    # def get_context_data(self, **kwargs):
-    #     ctx = super(HomeView, self).get_context_data(**kwargs)
-    #     ctx['page_title'] = 'BerryCat'
-    #     return ctx
 
     def get_queryset(self):
 
@@ -45,26 +41,9 @@ class HomeView(ListView):
         ctx = super(HomeView, self).get_context_data(**kwargs)
         ctx['title'] = 'BarryCat'
         return ctx
-    # def get_context_data(self, **kwargs):
-    #     ctx = super(HomeView, self).get_context_data(**kwargs)
-    #     ctx['big_best_article'] = Article.objects.filter(
-    #         active=1).order_by('-like')[0]
-    #     ctx['small_best_article'] = Article.objects.filter(
-    #         active=1).order_by('-like')[1:5]
-    #     ctx['last_article'] = Article.objects.filter(
-    #         active=1).order_by('-date')[:5]
-    #     return ctx
-
-
-# def post(request):
-#     return render(request, 'blog/article.html')
 
 def search(request):
     return render(request, 'blog/search.html')
-
-
-# def rubric(request):
-#     return render(request, 'blog/rubric.html')
 
 class UserArticleView(ListView):
     model = Article
@@ -86,6 +65,26 @@ class UserArticleView(ListView):
             active=1).order_by('-like')[random_index:random_index + 3]
         return ctx
 
+class SearchArticleView(ListView):
+    model = Article
+    template_name = 'blog/search.html'
+    context_object_name = 'article'
+    ordering = ['-date']
+    paginate_by = 9
+
+    def get_queryset(self):
+        query = self.kwargs.get('search')
+        object_list = Article.objects.filter(text_article__icontains=query)
+        return object_list
+
+    def get_context_data(self, **kwargs):
+        random_index = randint(0, Article.objects.count() - 3)
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        ctx = super(SearchArticleView, self).get_context_data(**kwargs)
+        ctx['title'] = 'Статьи ' + str(user)
+        ctx['best_article'] = Article.objects.filter(
+            active=1).order_by('-like')[random_index:random_index + 3]
+        return ctx
 
 class AllArticleView(ListView):
     queryset = Article.objects.filter(active=1)

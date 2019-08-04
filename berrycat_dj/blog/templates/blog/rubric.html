@@ -3,16 +3,7 @@
 {% block rubric %}
 <div class="wrapper_h2">
   <h2>{{ title }}</h2>
-  <form action="" method="post" id="search-block-form">
-    <div class="wrapper_input">
-      <div class="form-item">
-        <input type="text" name="" value="" maxlength="128" placeholder="Найти...">
-      </div>
-      <div class="form-actions">
-        <input type="submit" name="op" value="Поиск" class="form-submit">
-      </div>
-    </div>
-  </form>
+    {% include "blog/search_form.html" %}
 </div>
 <section id="last_article">
 
