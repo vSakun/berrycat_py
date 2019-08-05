@@ -104,6 +104,7 @@ h2 {
   align-items: center;
   width: 50%;
   height: 70px;
+  font-size: 2rem;
 }
 
 h2::after {

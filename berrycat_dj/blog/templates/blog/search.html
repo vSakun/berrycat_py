@@ -29,6 +29,8 @@
     <a href="{% url 'article' article.id %}" class="link_full_article">Полная статья</a>
   </div>
   {% endfor %}
+  {% else %}
+    <p>По вашему запросу <span>{{ question }}</span> ни чего не найдено. Попробуйте ещё раз.</p>
   {% endif %}
 </section>
 <div class="pag_mnu">
@@ -39,7 +41,6 @@
     <a href="?page={{ page_obj.previous_page_number }}" class="more_link"><i class="fas fa-chevron-left"></i></a>
     {% endif %}
   </div>
-
   <div class="pag_int_center">
 
 

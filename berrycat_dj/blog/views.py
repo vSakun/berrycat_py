@@ -67,11 +67,11 @@ class UserArticleView(ListView):
         return ctx
 
 class SearchArticleView(ListView):
-    model = Article
+    # model = Article
     template_name = 'blog/search.html'
-    context_object_name = 'article'
-    ordering = ['-date']
-    paginate_by = 9
+    # context_object_name = 'article'
+    # ordering = ['-date']
+    #paginate_by = 9
 
     def get(self, request, *args, **kwargs):
         context = {}
@@ -82,28 +82,32 @@ class SearchArticleView(ListView):
             search_articles = Article.objects.filter(text_article__icontains=question)
 
             context['article'] = search_articles
-            context['title'] = 'Поиск'
+            context['title'] = 'Поиск: ' + question
             context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
+            context['question'] = question
 
             # # формируем строку URL, которая будет содержать последний запрос
             # # Это важно для корректной работы пагинации
-            # context['last_question'] = '?q=%s' % question
+            context['last_question'] = '?q=%s' % question
 
-            # current_page = Paginator(search_articles, 10)
+            current_page = Paginator(search_articles, 9)
 
-            # page = request.GET.get('page')
-            # try:
-            #     context['article'] = current_page.page(page)
-            #     context['title'] = 'Поиск'
-            #     context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
-            # except PageNotAnInteger:
-            #     context['article'] = current_page.page(1)
-            #     context['title'] = 'Поиск'
-            #     context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
-            # except EmptyPage:
-            #     context['article'] = current_page.page(current_page.num_pages)
-            #     context['title'] = 'Поиск'
-            #     context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
+            page = request.GET.get('page')
+            try:
+                context['article'] = current_page.page(page)
+                context['title'] = 'Поиск: ' + question
+                context['question'] = question
+                context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
+            except PageNotAnInteger:
+                context['article'] = current_page.page(1)
+                context['title'] = 'Поиск: ' + question
+                context['question'] = question
+                context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
+            except EmptyPage:
+                context['article'] = current_page.page(current_page.num_pages)
+                context['title'] = 'Поиск: ' + question
+                context['question'] = question
+                context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
         return render_to_response(template_name=self.template_name, context=context)
 
 class AllArticleView(ListView):
