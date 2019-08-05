@@ -981,6 +981,14 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 10px 0;
+}
+.pag_mnu a {
+  padding: 5px;
+  font-size: 1.5rem;
+}
+.pag_mnu button {
+  font-size: 1.5rem;
 }
 /* popup */
 .box{
