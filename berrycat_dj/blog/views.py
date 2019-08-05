@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+import requests 
 from django.contrib.auth.models import User
 from django.db.models import Q
 #from django.urls import reverse
@@ -67,48 +68,24 @@ class UserArticleView(ListView):
         return ctx
 
 class SearchArticleView(ListView):
-    # model = Article
+    model = Article
     template_name = 'blog/search.html'
-    # context_object_name = 'article'
-    # ordering = ['-date']
-    #paginate_by = 9
+    context_object_name = 'article'
+    ordering = ['-date']
+    # paginate_by = 9
 
-    def get(self, request, *args, **kwargs):
-        context = {}
+    def get_context_data(self, **kwargs):
+        ctx = super(SearchArticleView, self).get_context_data(**kwargs)
         random_index = randint(0, Article.objects.count() - 3)
 
-        question = request.GET.get('q')
+        question = self.request.GET.get('q')
         if question is not None:
-            search_articles = Article.objects.filter(text_article__icontains=question)
-
-            # context['article'] = search_articles
-            # context['title'] = 'Поиск: ' + question
-            # context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
-            # context['question'] = question
-
-            # # формируем строку URL, которая будет содержать последний запрос
-            # # Это важно для корректной работы пагинации
-            context['last_question'] = '?q=%s' % question
-
-            current_page = Paginator(search_articles, 9)
-
-            page = request.GET.get('page')
-            try:
-                context['article'] = current_page.page(page)
-                context['title'] = 'Поиск: ' + question
-                context['question'] = question
-                context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
-            except PageNotAnInteger:
-                context['article'] = current_page.page(1)
-                context['title'] = 'Поиск: ' + question
-                context['question'] = question
-                context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
-            except EmptyPage:
-                context['article'] = current_page.page(current_page.num_pages)
-                context['title'] = 'Поиск: ' + question
-                context['question'] = question
-                context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
-        return render_to_response(template_name=self.template_name, context=context)
+            search_articles = Article.objects.filter(Q(text_article__icontains=question) | Q(text_preview__icontains=question) | Q(title__icontains=question))
+            ctx['article'] = search_articles
+            ctx['title'] = 'Поиск: ' + question
+            ctx['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
+            ctx['question'] = question
+        return ctx
 
 class AllArticleView(ListView):
     queryset = Article.objects.filter(active=1)
