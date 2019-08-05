@@ -81,10 +81,10 @@ class SearchArticleView(ListView):
         if question is not None:
             search_articles = Article.objects.filter(text_article__icontains=question)
 
-            context['article'] = search_articles
-            context['title'] = 'Поиск: ' + question
-            context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
-            context['question'] = question
+            # context['article'] = search_articles
+            # context['title'] = 'Поиск: ' + question
+            # context['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
+            # context['question'] = question
 
             # # формируем строку URL, которая будет содержать последний запрос
             # # Это важно для корректной работы пагинации
