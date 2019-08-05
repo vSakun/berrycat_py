@@ -6,6 +6,7 @@
   {% include "blog/search_form.html" %}
 </div>
 <section id="search_page">
+  {% if article %}
   {% for article in article %}
   <div class="search_article">
     <div class="search_wrapper_img">
@@ -28,6 +29,7 @@
     <a href="{% url 'article' article.id %}" class="link_full_article">Полная статья</a>
   </div>
   {% endfor %}
+  {% endif %}
 </section>
 <div class="pag_mnu">
   {% if  is_paginated %}
@@ -37,6 +39,7 @@
     <a href="?page={{ page_obj.previous_page_number }}" class="more_link"><i class="fas fa-chevron-left"></i></a>
     {% endif %}
   </div>
+
   <div class="pag_int_center">
 
 
