@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-import requests 
 from django.contrib.auth.models import User
 from django.db.models import Q
 #from django.urls import reverse
@@ -161,6 +160,8 @@ class DetailArticleView(DetailView, UpdateView):
     def get_context_data(self, **kwargs):
         random_index = randint(0, Article.objects.count() - 3)
         id_article = get_object_or_404(Article, pk=self.kwargs['pk'])
+        id_article.views_all += 1
+        id_article.save(update_fields=['views_all'])
         ctx = super(DetailArticleView, self).get_context_data(**kwargs)
         ctx['form'] = CommentForm()
         ctx['comments'] = CommentArticle.objects.filter(

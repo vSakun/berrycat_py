@@ -26,7 +26,7 @@ class Article(models.Model):
     avtor = models.ForeignKey(User, on_delete=models.CASCADE)
     like = models.BigIntegerField()
     dislike = models.BigIntegerField()
-    views_all = models.BigIntegerField()
+    views_all = models.IntegerField('Просмотры', default=0)
     image = models.ImageField(upload_to='pictures/', null=True, blank=True)
 
     def __str__(self):
