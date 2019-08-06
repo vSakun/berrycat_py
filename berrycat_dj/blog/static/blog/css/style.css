@@ -38,7 +38,7 @@ img {
   grid-gap: .5em;
 }
 
-.fa-thumbs-up, .fa-thumbs-down, .fa-comments {
+.fa-thumbs-up, .fa-thumbs-down, .fa-eye {
   font-weight: 400;
   font-size: 1.2rem;
 }
@@ -105,6 +105,7 @@ h2 {
   width: 50%;
   height: 70px;
   font-size: 2rem;
+  text-align: center;
 }
 
 h2::after {
@@ -203,6 +204,12 @@ input {
 
 input:focus {
   outline: none;
+}
+
+label {
+  font-family: MontserratAlternates;
+  border: none;
+  color: #565656;
 }
 
 .form-submit {
@@ -888,8 +895,63 @@ footer {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   transition: color .2s, text-shadow .2s;
 }
-.off_soc {
-
+.comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 50%;
+  border: 3px rgba(255,255,255,.3) dashed;
+  border-radius: 5px;
+}
+.avtor_com {
+  color: rgb(187, 72, 59);
+  text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+  line-height: 3rem;
+  padding: 0 15px;
+}
+.text_com {
+  padding: 0 15px;
+}
+.date_com {
+  line-height: 3rem;
+  align-self: flex-end;
+  color: rgb(53, 56, 64);
+  padding: 0 15px;
+}
+.form_active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+.form_active textarea, .form_active input {
+  background-color: rgba(0,0,0,.3);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, .5);
+  border-radius: 5px;
+  border: none;
+  padding: 5px 5px;
+  line-height: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: rgb(240, 240, 240);
+  text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+}
+.form_active label {
+  padding: 10px 0;
+  font-size: 1.5rem;
+}
+.form_active .form-input-submit {
+  background-color: rgba(99, 50, 117, .5);
+  margin: 20px 0 0 0;
+  line-height: 2.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+}
+.form_active .form-input-submit:hover {
+  background-color: rgba(99, 50, 117, .7);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, .5);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+  cursor: pointer;
 }
 
 /* PAGE search */

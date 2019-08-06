@@ -30,7 +30,7 @@
         <div class="social_mini">
           <p><i class="far fa-thumbs-up"></i><span>{{ article.like }}</span></p>
           <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
-          <p><i class="far fa-comments"></i><span>{{ article.views_all }}</span></p>
+          <p><i class="far fa-eye"></i><span>{{ article.views_all }}</span></p>
         </div>
         <a href="{% url 'article' article.id %}" class="link_full_article"></a>
       </div>
@@ -42,14 +42,14 @@
   <h4>Комментарии</h4>
   {% for comm in comments %}
   <div class="comment">
-    <p>{{ comm.avtor_comment }}</p>
-    <p>{{ comm.text_comment }}</p>
-    <p>{{ comm.date_created }}</p>
+    <h6 class="avtor_com">{{ comm.avtor_comment }}</h6>
+    <p class="text_com">{{ comm.text_comment }}</p>
+    <p class="date_com">{{ comm.date_created }}</p>
   </div>
   {% endfor %}
-  <form action="" method="post">
+  <form action="" method="post" class="form_active">
     {% csrf_token %}
     {{form}}
-    <input type="submit" value="Отправить">
+    <input class="form-input-submit" type="submit" value="Отправить">
   </form>
   {% endblock article %}

@@ -42,9 +42,9 @@ class CommentArticle(models.Model):
         verbose_name = "Комментарий"
         verbose_name_plural = "Комментарии"
 
-    avtor_comment = models.CharField(max_length=255)
+    avtor_comment = models.CharField(max_length=255, verbose_name='Автор')
     for_article = models.ForeignKey(
         Article, verbose_name="Статья", on_delete=models.CASCADE)
-    text_comment = models.TextField(max_length=500)
-    date_created = models.DateTimeField(auto_now_add=True)
+    text_comment = models.TextField(max_length=500, verbose_name='Текст')
+    date_created = models.DateTimeField(auto_now_add=True, verbose_name='Дата')
     active = models.BooleanField(default=True)
