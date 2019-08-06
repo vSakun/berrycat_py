@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView, UpdateView
 from .models import Article, CommentArticle
 from random import randint
 from .forms import CommentForm
-#from django.http import HttpResponseRedirect
+from django.http import JsonResponse
 from django.shortcuts import render_to_response
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
@@ -180,3 +180,21 @@ class DetailArticleView(DetailView, UpdateView):
             avtor_comment=avtor_comment, text_comment=text_comment, for_article=for_article)
         comment.save()
         return self.render_to_response(self.get_context_data(form=form))
+
+def likedislike(request):
+    if request.GET:
+        key_ldl = request.GET.get('ldl')
+        title = request.GET.get('title')
+        article = get_object_or_404(Article, title=title)
+        if key_ldl == 'like':
+            article.like += 1
+            article.save(update_fields=['like'])
+            data = {'key_ldl': article.like}
+            return JsonResponse(data)
+        elif key_ldl =='dislike':
+            article.dislike += 1
+            article.save(update_fields=['dislike'])
+            data = {'key_ldl': article.dislike}
+            return JsonResponse(data)
+        else:
+            return JsonResponse('What?')

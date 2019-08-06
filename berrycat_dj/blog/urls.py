@@ -13,4 +13,5 @@ urlpatterns = [
          views.Coffee_CountryArticleView.as_view(), name='coffee_country'),
     path('articles/places_and_events/',
          views.Places_and_EventsArticleView .as_view(), name='places_and_events'),
+    path('likedislike/', views.likedislike, name='likedislike'),
 ]

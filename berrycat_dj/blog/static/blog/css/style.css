@@ -132,7 +132,7 @@ h2::before {
 h4 {
   position: relative;
   text-transform: uppercase;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   letter-spacing: 2px;
   color: rgb(53, 56, 64);
   text-shadow: 1px 1px 2px rgb(255, 255, 255, .5);
@@ -794,7 +794,7 @@ footer {
   transition: color .3s, text-shadow .3s;
 }
 
-.about_article .social_mini p:hover .fa-thumbs-up, .about_article .social_mini p:hover .fa-thumbs-down {
+.about_article .social_mini .soc_p:hover .fa-thumbs-up, .about_article .social_mini .soc_p:hover .fa-thumbs-down {
   color: rgba(255, 255, 255, .9);
   text-shadow: 1px 1px 1px rgba(99, 50, 117, .7);
   -webkit-background-clip: inherit;
@@ -804,17 +804,19 @@ footer {
   transition: color .3s, text-shadow .7s;
 }
 
-.about_article .social_mini p {
+.about_article .social_mini .soc_p {
   cursor: pointer;
 }
-
 .about_article .social_mini p span {
+  color: #565656;
+}
+.about_article .social_mini .soc_p span {
   color: #565656;
   text-shadow: 1px 1px 1px transparent;
   transition: color .2s, text-shadow .2s;
 }
 
-.about_article .social_mini p:hover span {
+.about_article .social_mini .soc_p:hover span {
   color: rgba(255, 255, 255, .9);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   transition: color .2s, text-shadow .2s;
@@ -871,6 +873,23 @@ footer {
   color: rgba(255, 255, 255, .9);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   transition: color .2s, text-shadow .2s;
+}
+.about_article .social_mini .on_soc i {
+  color: rgba(255, 255, 255, .9);
+  text-shadow: 1px 1px 1px rgba(99, 50, 117, .7);
+  -webkit-background-clip: inherit;
+  -moz-background-clip: inherit;
+  background-clip: inherit;
+  background-color: transparent;
+  transition: color .3s, text-shadow .7s;
+}
+.about_article .social_mini .on_soc span {
+  color: rgba(255, 255, 255, .9);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  transition: color .2s, text-shadow .2s;
+}
+.off_soc {
+
 }
 
 /* PAGE search */

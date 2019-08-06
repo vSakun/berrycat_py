@@ -1,3 +1,54 @@
+/*Like - Dislike*/
+$(document).ready(function(){
+	function like(){
+		var title = $('h2').html()
+		$.ajax({
+			method: "GET",
+			url: 'http://localhost:8000/likedislike/',
+			data:{
+				'ldl': 'like',
+				'title': title
+			},
+			dataType: 'json',
+			success: function (data) {
+				console.log(data);
+				if(data.key_ldl) {
+					$('#like').text(data.key_ldl);
+					$('#like_p').attr('class', 'on_soc');
+					$('#like_p').off('click');
+					$('#dislike_p').off('click');
+					$('#dislike_p').removeAttr('class');
+				}
+			}
+		})
+	};
+	function dislike(){
+		var title = $('h2').html()
+		$.ajax({
+			method: "GET",
+			url: '/likedislike/',
+			data:{
+				'ldl': 'dislike',
+				'title': title
+			},
+			dataType: 'json',
+			success: function (data) {
+				console.log(data);
+				if(data.key_ldl) {
+					$('#dislike').text(data.key_ldl);
+					$('#dislike_p').attr('class', 'on_soc');
+					$('#like_p').off('click');
+					$('#dislike_p').off('click');
+					$('#like_p').removeAttr('class');
+				}
+			}
+		})
+	};
+	$('#like_p').on('click', like);
+	$('#dislike_p').on('click', dislike);
+});
+
+
 /* Slider */
 $(document).ready(function(){
 	$(".foto_bloc .info_item_slide:gt(0)").addClass("vis").addClass("hid");
@@ -136,7 +187,7 @@ function block_out(op,elem){
 	}
 }
 /* Прилоадер */
-$(window).load(function(){
-	$(".loader_inner").fadeOut();
-	$(".loader").delay(250).fadeOut("slow");
-});
+// $(window).load(function(){
+// 	$(".loader_inner").fadeOut();
+// 	$(".loader").delay(250).fadeOut("slow");
+// });

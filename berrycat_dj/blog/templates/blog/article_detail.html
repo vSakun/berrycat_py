@@ -9,8 +9,8 @@
   <p>{{ object.text_article | safe }}</p>
     <div class="about_article">
       <div class="social_mini">
-        <p><i class="far fa-thumbs-up"></i><span>{{ object.like }}</span></p>
-        <p><i class="far fa-thumbs-down"></i><span>{{ object.dislike }}</span></p>
+        <p id="like_p" class="soc_p"><i class="far fa-thumbs-up"></i><span id="like">{{ object.like }}</span></p>
+        <p id="dislike_p" class="soc_p"><i class="far fa-thumbs-down"></i><span id="dislike">{{ object.dislike }}</span></p>
       </div>
       <div class="author_date_article">
         <p>Автор: <a href="{% url 'user_article_view' article.avtor.username %}" class='more_link'>{{ object.avtor }}</a></p>
