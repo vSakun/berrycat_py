@@ -936,6 +936,7 @@ footer {
   letter-spacing: 1px;
   color: rgb(240, 240, 240);
   text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+  font-family: MontserratAlternates;
 }
 .form_active label {
   padding: 10px 0;

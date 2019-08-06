@@ -4,7 +4,7 @@ $(document).ready(function(){
 		var title = $('h2').html()
 		$.ajax({
 			method: "GET",
-			url: 'http://localhost:8000/likedislike/',
+			url: '/likedislike/',
 			data:{
 				'ldl': 'like',
 				'title': title
