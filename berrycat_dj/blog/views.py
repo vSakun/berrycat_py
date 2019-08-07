@@ -95,6 +95,8 @@ class AllArticleView(ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super(AllArticleView, self).get_context_data(**kwargs)
+        random_index = randint(0, Article.objects.count() - 3)
+        ctx['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
         ctx['title'] = 'Статьи'
         return ctx
 
@@ -108,6 +110,8 @@ class TravelArticleView(ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super(TravelArticleView, self).get_context_data(**kwargs)
+        random_index = randint(0, Article.objects.count() - 3)
+        ctx['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
         ctx['title'] = 'Путешествия'
         return ctx
 
@@ -121,6 +125,8 @@ class HandMadeArticleView(ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super(HandMadeArticleView, self).get_context_data(**kwargs)
+        random_index = randint(0, Article.objects.count() - 3)
+        ctx['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
         ctx['title'] = 'HAND MADE'
         return ctx
 
@@ -134,6 +140,8 @@ class Coffee_CountryArticleView(ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super(Coffee_CountryArticleView, self).get_context_data(**kwargs)
+        random_index = randint(0, Article.objects.count() - 3)
+        ctx['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
         ctx['title'] = 'Страна кофе'
         return ctx
 
@@ -148,6 +156,8 @@ class Places_and_EventsArticleView(ListView):
     def get_context_data(self, **kwargs):
         ctx = super(Places_and_EventsArticleView,
                     self).get_context_data(**kwargs)
+        random_index = randint(0, Article.objects.count() - 3)
+        ctx['best_article'] = Article.objects.filter(active=1).order_by('-like')[random_index:random_index + 3]
         ctx['title'] = 'Места и события'
         return ctx
 

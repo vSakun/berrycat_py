@@ -57,4 +57,26 @@
   </div>
   {% endif %}
 </div>
+
+<div class="wrapper_h2">
+  <h2>Случайные</h2>
+</div>
+<section id="last_article">
+    {% for article in best_article %}
+    <article class="article_bloc">
+      <div class="wrapper_h3">
+        <h3>{{ article.title }}</h3>
+        <p class="mini_inf">{{ article.text_preview }}</p>
+        <div class="social_mini">
+          <p><i class="far fa-thumbs-up"></i><span>{{ article.like }}</span></p>
+          <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
+          <p><i class="far fa-eye"></i><span>{{ article.views_all }}</span></p>
+        </div>
+        <a href="{% url 'article' article.id %}" class="link_full_article"></a>
+      </div>
+      <img src="{{ BASE_DIR }}{{ article.image.url }}" alt="">
+    </article>
+    {% endfor %}
+
+  </section>
 {% endblock rubric %}
