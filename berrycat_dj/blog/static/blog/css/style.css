@@ -237,6 +237,7 @@ label {
 
 .form-item input {
   background-color: transparent;
+  width: 100%;
 }
 
 h3 {
