@@ -186,9 +186,11 @@ class DetailArticleView(DetailView, UpdateView):
         avtor_comment = form.cleaned_data['avtor_comment']
         text_comment = form.cleaned_data['text_comment']
         for_article = Article.objects.filter(pk=self.kwargs['pk']).first()
-        comment = CommentArticle.objects.create(
-            avtor_comment=avtor_comment, text_comment=text_comment, for_article=for_article)
-        comment.save()
+        if CommentArticle.objects.filter(avtor_comment = avtor_comment, for_article=for_article, text_comment = text_comment):
+            return self.render_to_response(self.get_context_data(form=form, error='Дублирование комментария...'))
+        else:
+            comment = CommentArticle.objects.create(avtor_comment=avtor_comment, text_comment=text_comment, for_article=for_article)
+            comment.save()
         return self.render_to_response(self.get_context_data(form=form))
 
 def likedislike(request):

@@ -48,6 +48,7 @@
   </div>
   {% endfor %}
   <form action="" method="post" class="form_active">
+    <span class="span_error">{{ error }}</span>
     {% csrf_token %}
     {{form}}
     <input class="form-input-submit" type="submit" value="Отправить">
