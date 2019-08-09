@@ -194,8 +194,8 @@ class DetailArticleView(DetailView, UpdateView):
 def likedislike(request):
     if request.GET:
         key_ldl = request.GET.get('ldl')
-        title = request.GET.get('title')
-        article = get_object_or_404(Article, title=title)
+        id = request.GET.get('id')
+        article = get_object_or_404(Article, id=id)
         if key_ldl == 'like':
             article.like += 1
             article.save(update_fields=['like'])

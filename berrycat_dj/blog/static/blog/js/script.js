@@ -1,13 +1,13 @@
 /*Like - Dislike*/
 $(document).ready(function(){
 	function like(){
-		var title = $('h2').html()
+		var id = window.location.pathname.slice(10, window.location.pathname.langth).slice(0, window.location.pathname.slice(10, window.location.pathname.langth).indexOf('/'))
 		$.ajax({
 			method: "GET",
 			url: '/likedislike/',
 			data:{
 				'ldl': 'like',
-				'title': title
+				'id': id
 			},
 			dataType: 'json',
 			success: function (data) {
@@ -23,13 +23,13 @@ $(document).ready(function(){
 		})
 	};
 	function dislike(){
-		var title = $('h2').html()
+		var id = window.location.pathname.slice(10, window.location.pathname.langth).slice(0, window.location.pathname.slice(10, window.location.pathname.langth).indexOf('/'))
 		$.ajax({
 			method: "GET",
 			url: '/likedislike/',
 			data:{
 				'ldl': 'dislike',
-				'title': title
+				'id': id
 			},
 			dataType: 'json',
 			success: function (data) {
