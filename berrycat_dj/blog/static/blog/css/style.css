@@ -103,8 +103,8 @@ h2 {
   justify-content: space-between;
   align-items: center;
   width: 50%;
-  height: 90px;
-  /*font-size: 2rem;*/
+  height: 70px;
+  font-size: 2rem;
   text-align: center;
 }
 
@@ -772,6 +772,12 @@ footer {
 
 .full_article h2, .full_article h4 {
   align-self: flex-start;
+}
+.full_article p {
+  padding: .5rem 0 .5rem 0;
+}
+.full_article p:empty {
+  display:none
 }
 
 .full_article .about_article {
