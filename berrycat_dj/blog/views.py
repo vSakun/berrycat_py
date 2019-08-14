@@ -43,9 +43,6 @@ class HomeView(ListView):
         ctx['title'] = 'BarryCat'
         return ctx
 
-def search(request):
-    return render(request, 'blog/search.html')
-
 class UserArticleView(ListView):
     model = Article
     template_name = 'blog/search.html'
