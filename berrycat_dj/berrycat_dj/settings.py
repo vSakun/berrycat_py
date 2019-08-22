@@ -25,7 +25,7 @@ SECRET_KEY = '3ay9wkl@!fb62#-$6le6+%u^asme2!63-#d_jv-bbnbx%gnuk)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'growbox.apps.GrowboxConfig',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -71,7 +72,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'berrycat_dj.wsgi.application'
+#WSGI_APPLICATION = 'berrycat_dj.wsgi.application'
+ASGI_APPLICATION = 'berrycat_dj.routing.application'
 
 
 # Database
