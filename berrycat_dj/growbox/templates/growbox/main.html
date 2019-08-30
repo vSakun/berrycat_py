@@ -1,10 +1,86 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#565656">
+
+  <link rel="shortcut icon" href="{% static 'blog/image/favicon.ico' %}" type="image/x-icon">
+  <link rel="apple-touch-icon" href="{% static 'blog/image/favicon.ico' %}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{% static 'blog/image/favicon.ico' %}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{% static 'blog/image/favicon.ico' %}">
+
+  <link rel="stylesheet" href="{% static 'blog/css/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/css/fonts.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/libs/fontawesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'growbox/css/media.css' %}">
+  <link rel="stylesheet" href="{% static 'growbox/css/style.css' %}">
 	<title>GrowBox</title>
 </head>
 <body>
-	<h1>Тут будет страничка о помидорах</h1>
+  <div class="wrapper">
+    <header>
+      <div id="logo">
+        <div class="logo_img"></div>
+        <h1>GrowBox</h1>
+      </div>
+      <div class="menu_bar">
+        <nav class="ctgr_mnu">
+          <a href="{% url 'travel' %}">Путешествия</a>
+          <a href="{% url 'hand_made' %}">HAND MADE</a>
+          <a href="{% url 'coffee_country' %}">Страна Кофе</a>
+          <a href="{% url 'places_and_events' %}">Места и события</a>
+          <a href="{% url 'grow' %}">GrowBox</a>
+        </nav>
+        <nav id="top_mnu">
+          <a href="{% url 'blog-home' %}">Главная</a>
+          <a href="{% url 'articles' %}">Статьи</a>
+          <a href="">О нас</a>
+          <!-- <a href="" class="enter">Вход</a> -->
+        </nav>
+      </div>
+    </header>
+
+<div class="wrapper_h2">
+  <h2>Жизнь внутри</h2>
+    {% include "blog/search_form.html" %}
+</div>
+<section id="box_info">
+	<div class="video">
+		<h3>Видео</h3>
+	</div>
+	<div class="info">
+		<h3>Показатели</h3>
+	</div>
+</section>
+<footer>
+      <div class="themes_article_mini">
+        <nav class="ctgr_mnu">
+          <a href="{% url 'travel' %}">Путешествия</a>
+          <a href="{% url 'hand_made' %}">HAND MADE</a>
+          <a href="{% url 'coffee_country' %}">Страна Кофе</a>
+          <a href="{% url 'places_and_events' %}">Места и события</a>
+          <a href="{% url 'grow' %}">GrowBox</a>
+        </nav>
+      </div>
+      <div class="wrapper_footer_img"></div>
+      <div class="contact_mini">
+        <div class="icon_contact">
+          <!-- <a href=""><i class="fab fa-vk"></i></a>
+          <a href=""><i class="fab fa-youtube"></i></a> -->
+          <a href="#"></a>
+          <a href="#"></a>
+          <a href="#"></a>
+        </div>
+        <!-- <a href="">info<span>@berrycat.com</span></a> -->
+      </div>
+    </footer>
+  </div>
+  <script src="{% static 'blog/libs/jq/jq3.4.js' %}"></script>
+  <script src="{% static 'blog/js/script.js' %}"></script>
 </body>
+
 </html>

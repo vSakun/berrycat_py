@@ -1,0 +1,41 @@
+@font-face {
+  font-family: Dotimatrix;
+  src: url("../font/Dotimatrix.otf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: MontserratAlternates;
+  src: url("../font/MontserratAlternates-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: MontserratAlternates;
+  src: url("../font/MontserratAlternates-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: MontserratAlternates;
+  src: url("../font/MontserratAlternates-Black.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: Steamy;
+  src: url('../font/Steamy.woff2') format('woff2'), url('../font/Steamy.woff') format('woff'), url('../font/Steamy.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: B52;
+  src: url('../font/B52_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
