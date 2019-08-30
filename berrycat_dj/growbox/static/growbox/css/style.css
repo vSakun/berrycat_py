@@ -1185,7 +1185,6 @@ footer {
 /*growbox*/
 
 #box_info{
-  height: 500px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1198,4 +1197,9 @@ footer {
 .info {
   width: 50%;
   height: 100%;
+}
+.info span{
+  font-family: a_LCDNova;
+  font-size: 2rem;
+  text-shadow: 0px 0px 3px red;
 }
