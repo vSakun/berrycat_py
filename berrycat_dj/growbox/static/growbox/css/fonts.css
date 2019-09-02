@@ -39,10 +39,9 @@
   font-weight: 400;
   font-style: normal;
 }
-
 @font-face {
-  font-family: a_LCDNova;
-  src: url('../font/a_LCDNova.ttf') format('truetype');
-  font-weight: 400;
+  font-family: A_CALC;
+  src: url("../font/A_CALC.ttf") format("truetype");
   font-style: normal;
+  font-weight: normal;
 }

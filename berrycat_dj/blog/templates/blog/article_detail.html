@@ -7,52 +7,52 @@
     {% include "blog/search_form.html" %}
   </div>
   <p>{{ object.text_article | safe }}</p>
-    <div class="about_article">
-      <div class="social_mini">
-        <p id="like_p" class="soc_p"><i class="far fa-thumbs-up"></i><span id="like">{{ object.like }}</span></p>
-        <p id="dislike_p" class="soc_p"><i class="far fa-thumbs-down"></i><span id="dislike">{{ object.dislike }}</span></p>
-      </div>
-      <div class="author_date_article">
-        <p>Автор: <a href="{% url 'user_article_view' article.avtor.username %}" class='more_link'>{{ object.avtor }}</a></p>
-        <p>Дата: <span>{{ object.date|date:"d E Y H:i" }}</span></p>
-      </div>
+  <div class="about_article">
+    <div class="social_mini">
+      <p id="like_p" class="soc_p"><i class="far fa-thumbs-up"></i><span id="like">{{ object.like }}</span></p>
+      <p id="dislike_p" class="soc_p"><i class="far fa-thumbs-down"></i><span id="dislike">{{ object.dislike }}</span></p>
     </div>
-  </article>
-  <div class="wrapper_h2">
-    <h2>Рекомендую</h2>
+    <div class="author_date_article">
+      <p>Автор: <a href="{% url 'user_article_view' article.avtor.username %}" class='more_link'>{{ object.avtor }}</a></p>
+      <p>Дата: <span>{{ object.date|date:"d E Y H:i" }}</span></p>
+    </div>
   </div>
-  <section id="last_article">
-    {% for article in best_article %}
-    <article class="article_bloc">
-      <div class="wrapper_h3">
-        <h3>{{ article.title }}</h3>
-        <p class="mini_inf">{{ article.text_preview }}</p>
-        <div class="social_mini">
-          <p><i class="far fa-thumbs-up"></i><span>{{ article.like }}</span></p>
-          <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
-          <p><i class="far fa-eye"></i><span>{{ article.views_all }}</span></p>
-        </div>
-        <a href="{% url 'article' article.id %}" class="link_full_article"></a>
+</article>
+<div class="wrapper_h2">
+  <h2>Рекомендую</h2>
+</div>
+<section id="last_article">
+  {% for article in best_article %}
+  <article class="article_bloc">
+    <div class="wrapper_h3">
+      <h3>{{ article.title }}</h3>
+      <p class="mini_inf">{{ article.text_preview }}</p>
+      <div class="social_mini">
+        <p><i class="far fa-thumbs-up"></i><span>{{ article.like }}</span></p>
+        <p><i class="far fa-thumbs-down"></i><span>{{ article.dislike }}</span></p>
+        <p><i class="far fa-eye"></i><span>{{ article.views_all }}</span></p>
       </div>
-      <img src="{{ BASE_DIR }}{{ article.image.url }}" alt="">
-    </article>
-    {% endfor %}
-
-  </section>
-  <h4>Комментарии</h4>
-  {% for comm in comments %}
-  <div class="comment">
-    <h6 class="avtor_com">{{ comm.avtor_comment }}</h6>
-    <p class="text_com">{{ comm.text_comment }}</p>
-    <p class="date_com">{{ comm.date_created }}</p>
-  </div>
+      <a href="{% url 'article' article.id %}" class="link_full_article"></a>
+    </div>
+    <img src="{{ BASE_DIR }}{{ article.image.url }}" alt="">
+  </article>
   {% endfor %}
-  <form action="" method="post" class="form_active">
-    {% if error %}
-    <span class="span_error">{{ error }}</span>
-    {% endif %}
-    {% csrf_token %}
-    {{form}}
-    <input class="form-input-submit" type="submit" value="Отправить">
-  </form>
-  {% endblock article %}
+
+</section>
+<h4>Комментарии</h4>
+{% for comm in comments %}
+<div class="comment">
+  <h6 class="avtor_com">{{ comm.avtor_comment }}</h6>
+  <p class="text_com">{{ comm.text_comment }}</p>
+  <p class="date_com">{{ comm.date_created }}</p>
+</div>
+{% endfor %}
+<form action="" method="post" class="form_active">
+  {% if error %}
+  <span class="span_error">{{ error }}</span>
+  {% endif %}
+  {% csrf_token %}
+  {{form}}
+  <input class="form-input-submit" type="submit" value="Отправить">
+</form>
+{% endblock article %}
