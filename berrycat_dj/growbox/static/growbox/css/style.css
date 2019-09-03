@@ -1236,15 +1236,25 @@ header {
 }
 .control_item input{
   line-height: 2rem;
-  width: 60%;
+  font-size: 1.2rem;
+  font-family: A_CALC;
+  width: 50%;
   background-color: rgba(0,0,0, .1);
   border-radius: 10px;
-  box-shadow: inset 0px 0px 4px -2px rgba(0,0,0, .5);
+  box-shadow: inset 0px 0px 4px -1px rgba(0,0,0, .5);
+  text-align: right;
+  color: rgba(255,255,255, .9);
+  padding: 0 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px rgba(0,0,0, .5);
 }
 .control_item label{
-  width: 30%;
+  width: 25%;
+  font-weight: 600;
 }
 .but{
+  color: #565656;
   width: 10%;
   display: flex;
   flex-direction: column;
@@ -1252,9 +1262,19 @@ header {
   align-items: center;
   cursor: pointer;
   font-size: 2rem;
+  transition: color .3s, text-shadow .3s;
 }
 .but:hover{
   color: rgb(187, 72, 59);
+  text-shadow: 1px 1px 1px rgba(0,0,0, .5);
+  transition: color .3s, text-shadow .3s;
+}
+.all{
+  width: 100%;
+  flex-direction: row;
+}
+.all .fa{
+  padding: 0 10px;
 }
 .botton_all{
 
