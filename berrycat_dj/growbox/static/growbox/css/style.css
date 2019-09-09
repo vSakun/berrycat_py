@@ -1,9 +1,9 @@
 html {
   /* background-color: #FFE8D7; */
   /* background: url(../image/coffee.png) no-repeat top -9% left 5.5%, linear-gradient(to top, #A3785D, #FFE8D7); */
-  background: url(/static/blog/image/kartinki/cassette4.png) no-repeat, url(/static/blog/image/kartinki/cup5.png) no-repeat, url(/static/blog/image/kartinki/glasses5.png) no-repeat, url(/static/blog/image/kartinki3/kist4.png) no-repeat, url(/static/blog/image/kartinki3/pero4.png) no-repeat, url(/static/blog/image/kartinki3/trubka4.png) no-repeat, url(/static/blog/image/kartinki3/planshet4.png) no-repeat, linear-gradient(to top, #80b080, #b7fbb7);
-  background-size: 20%, 20%, 20%, 1.2%, 1.2%, 10%, 10%;
-  background-position: 2% 20%, 100% 45%, 2% 65%, 90% 25%, 5% 53%, 95% 77%, 5% 94%;
+  background: url(/static/growbox/image/vega/baklazan.png) no-repeat, url(/static/growbox/image/vega/salat.png) no-repeat, url(/static/growbox/image/vega/redis.png) no-repeat, url(/static/growbox/image/vega/tomate_f.png) no-repeat, url(/static/growbox/image/vega/chesnok.png) no-repeat, url(/static/growbox/image/vega/luk.png) no-repeat, url(/static/blog/image/kartinki3/goroshek.png) no-repeat, linear-gradient(to top, #80b080, #b7fbb7);
+  background-size: 10%, 15%, 10%, 10%, 15%, 10%, 10%;
+  background-position: 2% 20%, 100% 45%, 2% 75%, 90% 25%, 5% 53%, 95% 77%, 5% 94%;
   box-shadow: inset 0 0 200px rgba(11,102,35, .50);
   min-height: 100vh;
   height: auto;
