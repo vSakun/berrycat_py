@@ -652,8 +652,8 @@ header {
   .wrapper_footer_img {
     width: 30%;
     align-self: stretch;
-    background: url(/static/growbox/image/sity.png) no-repeat;
-    background-position: bottom;
+    background: url(/static/growbox/image/cat-flau.png) no-repeat;
+    /*background-position: bottom;*/
     background-size: contain;
   }
 
