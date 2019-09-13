@@ -652,7 +652,7 @@ header {
   .wrapper_footer_img {
     width: 30%;
     align-self: stretch;
-    background: url(/static/growbox/image/cat-flau5.png) no-repeat;
+    background: url(/static/growbox/image/cat-flau.png) no-repeat;
     /*background-position: bottom;*/
     background-size: contain;
   }
