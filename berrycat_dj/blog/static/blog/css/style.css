@@ -301,7 +301,8 @@ a {
 
 header {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
+/*  flex-direction: row;*/
   justify-content: space-between;
   align-items: stretch;
   height: 150px;
@@ -310,6 +311,7 @@ header {
 #logo {
   width: 50%;
   display: flex;
+/*  flex-flow: row wrap;*/
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
