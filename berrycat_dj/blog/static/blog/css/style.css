@@ -1089,6 +1089,7 @@ footer {
   font-size: 1.5rem;
 }
 .pag_mnu span {
+  color: rgb(53, 56, 64);
   font-size: 1.6rem;
   text-shadow: 1px 1px 1px rgba(255,255,255, .5);
 }
