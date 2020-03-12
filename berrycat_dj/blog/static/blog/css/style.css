@@ -1088,8 +1088,9 @@ footer {
   padding: 5px;
   font-size: 1.5rem;
 }
-.pag_mnu button {
-  font-size: 1.5rem;
+.pag_mnu span {
+  font-size: 1.6rem;
+  text-shadow: 1px 1px 1px rgba(255,255,255, .5);
 }
 /* popup */
 .box{

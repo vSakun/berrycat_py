@@ -47,7 +47,7 @@
 
     {% for num in page_obj.paginator.page_range %}
     {% if num == page_obj.number %}
-    <button>{{ num }}</button>
+    <span>{{ num }}</span>
     {% elif num > page_obj.number|add:'-3' and  num < page_obj.number|add:'3' %}
     <a href="?page={{ num }}" class="more_link">{{ num }}</a>
     {% endif %}
